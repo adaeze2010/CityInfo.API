@@ -14,6 +14,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+
+     
     },
     "CityInfo.API": {
       "commandName": "Project",
