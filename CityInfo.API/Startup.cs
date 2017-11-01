@@ -10,7 +10,8 @@ using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-
+using CityInfo.API.Enitites;
+using Microsoft.EntityFrameworkCore;
 
 namespace CityInfo.API
 {
@@ -35,7 +36,9 @@ namespace CityInfo.API
 
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            
+
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=CityInfoDB;Trusted_Connection=True;";
+            services.AddDbContext<CityInfoContext>( o => o.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
